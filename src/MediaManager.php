@@ -6,15 +6,15 @@ namespace Tavaan\Engine\Media;
 
 final class MediaManager
 {
-    public function upload(/* ... */): mixed
+    public function upload()
     {
         return null;
     }
-    public function fromPath(/* ... */): mixed
+    public function fromPath()
     {
         return null;
     }
-    public function variants(/* ... */): mixed
+    public function variants()
     {
         return null;
     }

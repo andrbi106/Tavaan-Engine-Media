@@ -6,43 +6,43 @@ namespace Tavaan\Engine\Media;
 
 final class Image
 {
-    public function make(/* ... */): mixed
+    public function make()
     {
         return null;
     }
-    public function resize(/* ... */): mixed
+    public function resize()
     {
         return null;
     }
-    public function crop(/* ... */): mixed
+    public function crop()
     {
         return null;
     }
-    public function thumbnail(/* ... */): mixed
+    public function thumbnail()
     {
         return null;
     }
-    public function watermark(/* ... */): mixed
+    public function watermark()
     {
         return null;
     }
-    public function convert(/* ... */): mixed
+    public function convert()
     {
         return null;
     }
-    public function rotate(/* ... */): mixed
+    public function rotate()
     {
         return null;
     }
-    public function flip(/* ... */): mixed
+    public function flip()
     {
         return null;
     }
-    public function save(/* ... */): mixed
+    public function save(): self
     {
-        return $this;
+        return true;
     }
-    public function exif(/* ... */): mixed
+    public function exif()
     {
         return null;
     }
