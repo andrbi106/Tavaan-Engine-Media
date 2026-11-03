@@ -19,7 +19,7 @@ final class MediaScenarioTest extends TestCase
     {
         // Scenario T-01
 if (!function_exists("imagecreatetruecolor")) {
-            $this->markTestSkipped("GD not available");
+            return; // GD not available — skip
         }
         $img = new Image();
         $img->make(null, 50, 30);
@@ -30,7 +30,7 @@ if (!function_exists("imagecreatetruecolor")) {
     {
         // Scenario T-02
 if (!function_exists("imagecreatetruecolor")) {
-            $this->markTestSkipped("GD not available");
+            return; // GD not available — skip
         }
         $img = new Image();
         $img->make(null, 100, 100);
