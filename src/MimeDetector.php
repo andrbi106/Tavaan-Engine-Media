@@ -14,7 +14,9 @@ final class MimeDetector
      */
     private const array SIGNATURES = [
         'image/jpeg' => [["\xFF\xD8\xFF", 0]],
-        'image/png' => [["\x89PNG\r\n\x1A\n", 0]],
+        'image/png' => [["\x89PNG\r
+\x1A
+", 0]],
         'image/gif' => [['GIF87a', 0], ['GIF89a', 0]],
         'image/webp' => [['RIFF', 0]],
         'image/bmp' => [['BM', 0]],
