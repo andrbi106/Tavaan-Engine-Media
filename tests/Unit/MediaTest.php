@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tavaan\Engine\Media\Tests\Unit;
 
-use PHPUnit\Framework\TestCase;
+use Tavaan\Testing\TestCase;
 use Tavaan\Engine\Media\Media;
 use Tavaan\Engine\Media\MimeDetector;
 use Tavaan\Engine\Media\Uploader;
