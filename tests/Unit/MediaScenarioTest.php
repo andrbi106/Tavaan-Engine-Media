@@ -15,7 +15,7 @@ use Tavaan\Engine\Media\MediaManager;
  */
 final class MediaScenarioTest extends TestCase
 {
-    public function t01_image_make_blank_canvas(): void
+    public function test_t01_image_make_blank_canvas(): void
     {
         // Scenario T-01
 if (!function_exists("imagecreatetruecolor")) {
@@ -26,7 +26,7 @@ if (!function_exists("imagecreatetruecolor")) {
         $this->assertSame(50, $img->getWidth());
         $this->assertSame(30, $img->getHeight());
     }
-    public function t02_image_resize_changes_dimensions(): void
+    public function test_t02_image_resize_changes_dimensions(): void
     {
         // Scenario T-02
 if (!function_exists("imagecreatetruecolor")) {
@@ -38,7 +38,7 @@ if (!function_exists("imagecreatetruecolor")) {
         $this->assertSame(50, $img->getWidth());
         $this->assertSame(50, $img->getHeight());
     }
-    public function t03_media_manager_frompath_missing_returns_null(): void
+    public function test_t03_media_manager_frompath_missing_returns_null(): void
     {
         // Scenario T-03
 $mgr = new MediaManager(["upload_dir" => "/tmp/test_media"]);
