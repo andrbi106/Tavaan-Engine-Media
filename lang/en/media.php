@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-/*| پیام‌های en برای موتور media */
-
 return [
-    'error_default' => 'Unknown error (media)',
-    'not_configured' => 'Engine not configured (media)',
+    'error_upload' => 'Upload failed: {0}',
+    'error_invalid_mime' => 'Invalid MIME: {0}',
+    'error_too_large' => 'File too large.',
+    'error_processing' => 'Image processing failed: {0}',
 ];

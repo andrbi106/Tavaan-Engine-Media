@@ -2,7 +2,7 @@
   "id": "tavaan.engine.media",
   "type": "engine",
   "name": "Media",
-  "title_fa": "رسانه",
+  "title_fa": "آپلود و پردازش رسانه",
   "version": "0.1.0",
   "namespace": "Tavaan\\Engine\\Media\\",
   "autoload": {
@@ -11,40 +11,21 @@
     }
   },
   "providers": [
-    "Tavaan\\Engine\\Media\\MediaManagerServiceProvider"
+    "Tavaan\\Engine\\Media\\MediaServiceProvider"
   ],
   "requires": {
     "php": ">=8.2",
-    "engines": [
-      "config"
-    ]
-  },
-  "soft_requires": {
-    "engines": [
-      "filesystem",
-      "database",
-      "compat",
-      "http"
-    ],
-    "extensions": [
-      "gd",
-      "imagick",
-      "fileinfo",
-      "exif"
-    ]
+    "engines": ["config"]
   },
   "config": {
     "file": "config/media.php",
     "key": "media"
   },
-  "tables": [
-    "tvn_media"
-  ],
+  "tables": [],
   "commands": [],
   "facade": {
     "name": "Media",
     "accessor": "media"
   },
-  "docs": "docs/03-engines/media.md",
-  "notes": "M5 — آپلود امن (magic bytes + extension allowlist + rename تصادفی + 🔒 polyglot scan + Image Bomb protection)، پردازش تصویر gd/imagick با fallback (none → فقط ذخیره)، WebP/AVIF، variants، dedup با SHA-256، EXIF سانیتیزه‌شده (بدون GPS)."
+  "docs": "docs/03-engines/media.md"
 }

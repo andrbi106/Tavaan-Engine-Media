@@ -2,35 +2,28 @@
 
 declare(strict_types=1);
 
-/*|--------------------------------------------------------------------------
- | Media Engine Configuration
- |--------------------------------------------------------------------------
- |
- | پیکربندی موتور media — همهٔ کلیدهای مستندشده در `docs/03-engines/media.md` بخش «پیکربندی».
- |
- |@see https://github.com/Derogaramin/Tavaan-Doc/blob/main/docs/03-engines/media.md
- */
-
 return [
-    /*| پیش‌فرض موتور (driver/store یا حالت فعال) */
-    'default' => env('MEDIA_DEFAULT', 'default'),
+    /*| حداکثر اندازه فایل (bytes) */
+    'max_size' => (int) (\getenv('TVN_MEDIA_MAX_SIZE') !== false ? \getenv('TVN_MEDIA_MAX_SIZE') : 104857600),
 
-    /*| کلید کش (در صورت استفاده) */
-    'prefix' => env('MEDIA_PREFIX', 'media:'),
+    /*| Extensionهای مجاز (خالی = همه از جدول پیش‌فرض) */
+    'allowed_extensions' => ['jpg', 'jpeg', 'png', 'gif', 'webp', 'pdf', 'mp4', 'mp3'],
 
-    /*| تنظیمات لاگ */
-    'log' => [
-        'channel' => env('MEDIA_LOG_CHANNEL', 'media'),
+    /*| درایور پردازش تصویر: auto | gd | imagick | none */
+    'image_driver' => \getenv('TVN_MEDIA_DRIVER') !== false ? \getenv('TVN_MEDIA_DRIVER') : 'auto',
+
+    /*| تنظیمات thumbnail */
+    'thumbnails' => [
+        'sizes' => [
+            'small'  => ['width' => 150, 'height' => 150],
+            'medium' => ['width' => 600, 'height' => 400],
+            'large'  => ['width' => 1200, 'height' => 800],
+        ],
     ],
 
-    /*| Facade */
-    'facade' => [
-        'name' => 'Media',
-        'accessor' => 'media',
-    ],
-
-    /*| سایر کلیدها (طبق مستندات) */
-    'options' => [
-        // TODO: کلیدهای اضافی طبق سند §۶ (پیکربندی)
+    /*| WebP conversion */
+    'webp' => [
+        'enabled' => false,
+        'quality' => 85,
     ],
 ];
