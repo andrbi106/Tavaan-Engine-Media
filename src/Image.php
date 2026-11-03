@@ -40,7 +40,7 @@ final class Image
     }
     public function save(/* ... */): mixed
     {
-        return null;
+        return $this;
     }
     public function exif(/* ... */): mixed
     {
