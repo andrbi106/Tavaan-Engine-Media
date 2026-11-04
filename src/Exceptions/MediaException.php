@@ -4,9 +4,11 @@ declare(strict_types=1);
 
 namespace Tavaan\Engine\Media\Exceptions;
 
+use Tavaan\Core\Exceptions\TavaanException;
+
 use RuntimeException;
 
-final class MediaException extends RuntimeException
+final class MediaException extends TavaanException
 {
     public static function uploadFailed(string $reason): self
     {
