@@ -2,6 +2,8 @@
 
 > **آپلود و پردازش رسانه** — موتور Media در فریمورک تَوان
 
+این موتور از کلاس پایهٔ `Engine` (در [Tavaan-Engine-Core](https://github.com/andrbi106/Tavaan-Engine-Core)) ارث می‌برد.
+
 ## مشخصات
 
 | فیلد | مقدار |
@@ -11,62 +13,60 @@
 | عنوان فارسی | آپلود و پردازش رسانه |
 | نسخه | `0.1.0` |
 | namespace | `Tavaan\Engine\Media` |
-| نوع | `engine` |
-| Facade | `Media` (accessor: `media`) |
+| کلاس موتور | `Tavaan\Engine\Media\MediaEngine` |
+| Facade | Media (`media`) |
 
-## خطاها (Exceptions)
+## کلاس موتور
 
-- `Tavaan\Engine\Media\Exceptions\InvalidFileTypeException`
-- `Tavaan\Engine\Media\Exceptions\MediaException`
+```php
+namespace Tavaan\Engine\Media;
 
-## Facadeها
+use Tavaan\EngineCore\Engine as BaseEngine;
+use Tavaan\EngineCore\Contracts\EngineManifestInterface;
 
-- `Tavaan\Engine\Media\Facades\Media`
+final class MediaEngine extends BaseEngine
+{
+    public function __construct(EngineManifestInterface $manifest)
+    {
+        parent::__construct($manifest);
+    }
 
-## کلاس‌های اصلی
+    public function register(ContainerInterface $container): void
+    {
+        parent::register($container);
+        // bindingهای اختصاصی موتور
+    }
 
-- `src/Image.php`
-- `src/ImageManager.php`
-- `src/ImageProcessor.php`
-- `src/Media.php`
-- `src/MediaManager.php`
-- `src/MediaServiceProvider.php`
-- `src/MimeDetector.php`
-- `src/MimeValidator.php`
-- `src/Uploader.php`
+    public function boot(): void
+    {
+        parent::boot();
+    }
+}
+```
+
+**فایل:** `src/MediaEngine.php`
+
+## وابستگی‌ها
+
+**موتورهای مورد‌نیاز:** `config`
 
 ## Service Providerها
 
 - `Tavaan\Engine\Media\MediaServiceProvider`
 
-## وابستگی‌ها
+## سه درگاه ارتباط با سایر موتورها
 
-**موتورهای مورد‌نیاز:**
-
-- `config`
-
-## پیکربندی
-
-- فایل پیکربندی: `config/media.php`
-- کلید: `media`
+| درگاه | الگو | متدهای convenience |
+|---|---|---|
+| Container | pull-based DI | `make()`, `bound()` |
+| Events | pub/sub | `dispatch()`, `listen()` |
+| EngineBus | point-to-point RPC | `call()`, `offer()` |
 
 ## نصب
 
 ```bash
 git clone https://github.com/andrbi106/Tavaan-Engine-Media.git
 ```
-
-این موتور بخشی از فریمورک تَوان است و معمولاً به‌صورت مستقیم نصب نمی‌شود،
-بلکه توسط [Tavaan-Core](https://github.com/andrbi106/Tavaan-Core) مدیریت می‌شود.
-
-## روابط با سایر مخازن
-
-| مخزن | نقش |
-|---|---|
-| **`andrbi106/Tavaan-Engine-Media`** (این مخزن) | موتور Media |
-| `andrbi106/Tavaan-Engine-Core` | ساختار پایه + درگاه ارتباط موتورها |
-| `andrbi106/Tavaan-Core` | اسکلت اپلیکیشن + همهٔ موتورها |
-| `Derogaramin/Tavaan-Framework` | فریمورک مادر (monorepo) |
 
 ## مجوز
 

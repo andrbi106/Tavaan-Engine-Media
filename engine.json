@@ -15,7 +15,9 @@
   ],
   "requires": {
     "php": ">=8.2",
-    "engines": ["config"]
+    "engines": [
+      "config"
+    ]
   },
   "config": {
     "file": "config/media.php",
@@ -27,5 +29,6 @@
     "name": "Media",
     "accessor": "media"
   },
-  "docs": "docs/03-engines/media.md"
+  "docs": "docs/03-engines/media.md",
+  "class": "Tavaan\\Engine\\Media\\MediaEngine"
 }
