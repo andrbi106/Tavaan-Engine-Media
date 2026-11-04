@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Tavaan\Engine\Media;
 
-use Tavaan\Core\Exceptions\Engine\EngineCapabilityException;
+use Tavaan\EngineCore\Exceptions\EngineCapabilityException;
 
 /**
  * تَوان | Tavaan — Media
